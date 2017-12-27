@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
  * Date: 12/27/17
  */
 @Service
-@Profile("en")
 @Primary
-public class PrimaryGreetingService implements GreetingService {
+@Profile("se")
+public class SwedishPrimaryGreetingService implements GreetingService {
+
     @Override
     public String sayHello() {
-        return "HELLO!!Primary Greeting Service";
+        return "HELLO !! Primärhälsoservice";
     }
 }
