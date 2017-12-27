@@ -1,7 +1,7 @@
 package com.springframework;
 
 import com.springframework.controllers.SetterInjectionController;
-import com.springframework.service.GreetingSereviceImpl;
+import com.springframework.service.GreetingServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,11 +17,11 @@ public class SetterInjectionControllerTest {
     @Before
     public void initialize(){
         setterInjectionController = new SetterInjectionController();
-        setterInjectionController.setGreetingService(new GreetingSereviceImpl());
+        setterInjectionController.setGreetingService(new GreetingServiceImpl());
     }
 
     @Test
     public void testSayHello(){
-        Assert.assertEquals(GreetingSereviceImpl.HELLO, setterInjectionController.sayHello());
+        Assert.assertEquals(GreetingServiceImpl.HELLO, setterInjectionController.sayHello());
     }
 }
