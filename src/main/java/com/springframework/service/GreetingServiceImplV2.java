@@ -1,9 +1,12 @@
 package com.springframework.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  * Author: sazal
  * Date: 12/27/17
  */
+@Service
 public class GreetingServiceImplV2 implements GreetingService {
     @Override
     public String sayHello() {
