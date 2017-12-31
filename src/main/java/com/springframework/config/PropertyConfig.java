@@ -1,11 +1,13 @@
 package com.springframework.config;
 
 import com.springframework.datasource.ExampleDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 
 /**
  * Author: sazal
@@ -14,6 +16,9 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @PropertySource("classpath:datasource.properties")
 public class PropertyConfig {
+
+    @Autowired
+    Environment environment;
 
     @Value("${com.springframework.username}")
     String userName;
@@ -27,7 +32,7 @@ public class PropertyConfig {
     @Bean
     public ExampleDataSource getExampleDataSource(){
         ExampleDataSource exampleDataSource = new ExampleDataSource();
-        exampleDataSource.setUserName(userName);
+        exampleDataSource.setUserName(environment.getProperty("COM_SPRINGFRAMEWORK_USERNAME"));
         exampleDataSource.setPassword(password);
         exampleDataSource.setDbUrl(dbUrl);
         return exampleDataSource;
