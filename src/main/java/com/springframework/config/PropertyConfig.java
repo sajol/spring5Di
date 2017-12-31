@@ -2,11 +2,9 @@ package com.springframework.config;
 
 import com.springframework.propertybeans.ExampleDataSource;
 import com.springframework.propertybeans.ExampleJms;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 
 /**
  * Author: sazal
@@ -14,9 +12,6 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 public class PropertyConfig {
-
-    @Autowired
-    Environment environment;
 
     @Value("${com.springframework.username}")
     String userName;
@@ -34,7 +29,7 @@ public class PropertyConfig {
     @Bean
     public ExampleDataSource getExampleDataSource() {
         ExampleDataSource exampleDataSource = new ExampleDataSource();
-        exampleDataSource.setUserName(environment.getProperty("COM_SPRINGFRAMEWORK_USERNAME"));
+        exampleDataSource.setUserName(userName);
         exampleDataSource.setPassword(password);
         exampleDataSource.setDbUrl(dbUrl);
         return exampleDataSource;
