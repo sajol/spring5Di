@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
 /**
@@ -16,10 +13,6 @@ import org.springframework.core.env.Environment;
  * Date: 12/31/17.
  */
 @Configuration
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-})
 public class PropertyConfig {
 
     @Autowired
@@ -54,10 +47,5 @@ public class PropertyConfig {
         exampleJms.setJsmPassword(jmsPassword);
         exampleJms.setJmsUrl(jmsUrl);
         return exampleJms;
-    }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer getProperSourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
     }
 }
