@@ -4,3 +4,10 @@ com:
         jmsusername: "jmssajol"
         jmspassword: "jmssajol"
         jmsurl: "jmssajol.com"
+
+---
+    spring:
+        profiles: en
+    com:
+        springframework:
+            jmsusername: jmssajol##en
