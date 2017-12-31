@@ -1,0 +1,6 @@
+####JMS PROPERTIES
+com:
+    springframework:
+        jmsusername: "jmssajol"
+        jmspassword: "jmssajol"
+        jmsurl: "jmssajol.com"
