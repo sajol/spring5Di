@@ -1,7 +1,8 @@
 package com.springframework;
 
 import com.springframework.controllers.TestController;
-import com.springframework.datasource.ExampleDataSource;
+import com.springframework.propertybeans.ExampleDataSource;
+import com.springframework.propertybeans.ExampleJms;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,5 +18,10 @@ public class DiApplication {
         System.out.println("Data source user name : " + dataSource.getUserName());
         System.out.println("Data source password : " + dataSource.getPassword());
         System.out.println("Data source db url : " + dataSource.getDbUrl());
+
+        ExampleJms jms = context.getBean(ExampleJms.class);
+        System.out.println("Jms source user name : " + jms.getJmsUserName());
+        System.out.println("Jms source password : " + jms.getJsmPassword());
+        System.out.println("Jms source url : " + jms.getJmsUrl());
     }
 }

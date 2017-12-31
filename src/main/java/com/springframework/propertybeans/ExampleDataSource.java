@@ -1,4 +1,4 @@
-package com.springframework.datasource;
+package com.springframework.propertybeans;
 
 /**
  * Author: sazal
